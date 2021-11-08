@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="cabecalho centralizado">
+        <img src="./assets/logo.png" alt="" class="logoCabecalho">
+        <div class="cabecalho2 centralizado">
+            <h3>Bem vindo(a) ao nosso catálogo digital</h3>
+            <div class="barraPesquisa centralizado">
+                <input type="text" placeholder="Procurar" (keyup)="itemPesquisa($event)">
+                <button class="btnPesquisa backgroundImage" style="background-image: url('./assets/buttons/btnPesquisa.png');"></button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="corpo centralizado">
+        <div class="filtros centralizado">
+            <div class="centralizado" style="margin-left: 0%;" (click)="tipo='Todos'" [ngClass]="{'filtroAtivo': tipo=='Todos'}" >Todos 
+                <div *ngIf="tipo=='Todos'" ></div>
+            </div>
+            <div class="centralizado" (click)="tipo='Tanque'" [ngClass]="{'filtroAtivo': tipo=='Tanque'}" > Tanques
+                <div *ngIf="tipo=='Tanque'" ></div>
+            </div>
+            <div class="centralizado" (click)="tipo='GLP'" [ngClass]="{'filtroAtivo': tipo=='GLP'}" >GLP
+                <div *ngIf="tipo=='GLP'" ></div>
+            </div>
+        </div>
+
+        <div class="conteudo centralizado">
+            
+            <div class="itens" *ngFor="let item of listaObjetos | filter: tipo | search: pesquisa"  >
+                <img src="./assets/gas.png" alt="" routerLink="/catalogo/{{item.Id}}">
+                <div class="textoInfo" routerLink="/catalogo/{{item.Id}}">
+                    <h5>{{item.Nome}}</h5>
+                    <p>{{item.Tipo}}</p>
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+    </div>
+</div>
+

@@ -1,0 +1,50 @@
+<div class=" centralizado corpo">
+    <div class="botoesTop centralizado">
+        <button class="backgroundImage botaoVoltar" routerLink="/" style="background-image: url(./assets/buttons/back.png);"></button>
+        <div class="centralizado doisBotoes" >
+            <button class="backgroundImage" style="background-image: url(./assets/buttons/medida.png); "></button>
+            <button class="backgroundImage" style="background-image: url(./assets/buttons/shared.png);"></button>
+        </div>
+    </div>
+    <div class="informacaoPc centralizado">
+        <img src="./assets/logo.png" alt="">
+        <div class="informacoesPc">
+            <h4>{{obj.Tipo}}</h4>
+            <h5>{{obj.Nome}}</h5>
+            <hr>
+            <p>{{obj.Descricao}}</p>
+        </div>
+        <div class="qrCode centralizado">
+            <img src="./assets/qrCode.png" alt="">
+            <p>Escaneie o QRCode com o seu celular e veja o produto em seu ambiente com Realidade Aumentada</p>
+        </div>
+    </div>
+    <div class="imagem centralizado">
+        
+
+        <model-viewer ar_preferred id="model-viewer" 
+    environment-image="https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/scene3.hdr" exposure="1.1"
+    camera-controls auto-rotate  src="./assets/3d/SKID TQ P-2000.glb"  
+     ar ar-modes="scene-viewer quick-look webxr" camera-controls alt="A 3D model car" 
+     ios-src="./assets/3d/usdz_skid_tq_p_2000.usdz"
+    style="width: 100%; height: 100vh;">
+    <button slot="ar-button" class="sxr-qr-code-button centralizado">
+        <embed class="sxr-ar-icon" src="./assets/ar-icon.png" alt="">
+        <span>Experimente em seu espaço</span>
+    </button>
+        </model-viewer>
+        
+    </div>
+    
+    <div class="informacao container centralizado" [ngClass]="{'informacaoFechada': !mostraInfo}" >
+        <button class="fechar" (click)="mostraInfo=!mostraInfo" ></button>
+        <div class="informacoes"  >
+            <h4>{{obj.Tipo}}</h4>
+            <h5>{{obj.Nome}}</h5>
+            <hr>
+            <p>{{obj.Descricao}}</p>
+            
+        </div>
+        
+    </div>
+</div>
