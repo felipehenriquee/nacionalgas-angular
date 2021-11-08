@@ -173,7 +173,8 @@
         font-weight: bold;
     }
     .botoesTop{
-        top:93%;
+        position: absolute;
+        top:80%;
         left:420px;
         width: 50%;
     }
