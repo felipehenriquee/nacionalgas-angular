@@ -159,7 +159,7 @@
     }
     .imagem{
         width: 100%;
-       
+        
     }
     .imagem img{
         width: 50%;
@@ -188,5 +188,8 @@
     }
     .doisBotoes{
         width: 100px;
+    }
+    .espacamento{
+        width: 0%;
     }
   }

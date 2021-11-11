@@ -129,4 +129,7 @@
     .corpo{
         margin-top: 2%;
     }
+    .espacamento{
+        display: none;
+    }
 }
