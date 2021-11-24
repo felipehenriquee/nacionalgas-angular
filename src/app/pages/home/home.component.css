@@ -87,9 +87,11 @@
     margin-top: 5%;
     padding: 2%;
     font-weight: bold;
+    min-height: 100px;
 }
 .textoInfo h5{
     font-size: 18px;
+    margin-bottom: 10%;
     
 }
 .textoInfo p{
