@@ -31,12 +31,12 @@ export class ItensService {
 
       "Tanque","https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/Skids+P4000+com+Vaporizador+Eletrico_Rev04.glb","./assets/qrcode/Skid P-4000Vaporizadoreletrico.png", "https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/usdz_skids_p4000_com_vaporizador_eletrico_rev04___1637700861006.usdz"
       ),
-      new Itens(
-        4, 
-        "SKID DE P-2000", "./assets/gas.png", 
-        "Instalação composta com 1 Skid de vasos P-4000 com grupo de regulagem",
-        "Tanque","https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/SKID+TQ+P-2000.glb","./assets/qrcode/Skid P-2000Pitstop.png", "https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/gasIphone.usdz"
-        ),
+      // new Itens(
+      //   4, 
+      //   "SKID DE P-2000", "./assets/gas.png", 
+      //   "Instalação composta com 1 Skid de vasos P-4000 com grupo de regulagem",
+      //   "Tanque","https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/SKID+TQ+P-2000.glb","./assets/qrcode/Skid P-2000Pitstop.png", "https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/gasIphone.usdz"
+      //   ),
       // 
       
     ]
