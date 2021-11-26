@@ -7,6 +7,7 @@ const routes: Routes = [{
   path:"",
   component: HomeComponent,
 },
+{path:"catalogo/:id",redirectTo: 'catalogo/:id/teste', pathMatch: 'full'},
 {
   path:"catalogo/:id/:nome",
   component: IndividualComponent,
