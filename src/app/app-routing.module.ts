@@ -8,7 +8,7 @@ const routes: Routes = [{
   component: HomeComponent,
 },
 {
-  path:"catalogo/:id",
+  path:"catalogo/:id/:nome",
   component: IndividualComponent,
 },];
 

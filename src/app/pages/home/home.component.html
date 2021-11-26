@@ -27,8 +27,8 @@
         <div class="conteudo centralizado">
             
             <div class="itens" *ngFor="let item of listaObjetos | filter: tipo | search: pesquisa"  >
-                <img [src]="item.Imagem" alt="" routerLink="/catalogo/{{item.Id}}">
-                <div class="textoInfo" routerLink="/catalogo/{{item.Id}}">
+                <img [src]="item.Imagem" alt="" routerLink="/catalogo/{{item.Id}}/{{tiraEspaco(item.Nome)}}">
+                <div class="textoInfo" routerLink="/catalogo/{{item.Id}}/{{item.Nome}}">
                     <h5>{{item.Nome}}</h5>
                     <p>{{item.Tipo}}</p>
                 </div>

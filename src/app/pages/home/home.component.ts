@@ -19,5 +19,10 @@ export class HomeComponent implements OnInit {
   itemPesquisa(e: any){
     this.pesquisa=(e.target.value);
   }
+  tiraEspaco(palavra: string){
+    const result = palavra.split(" ").join("-");
+    console.log(result)
+    return result;
+  }
 
 }

@@ -32,6 +32,8 @@
 }
 .imagem img{
     width: 100%;
+   
+    
 }
 .espacamento{
     
@@ -165,6 +167,7 @@
     .imagem img{
         width: 50%;
         min-width: 400px;
+        
     }
     .qrCode{
         margin-top:20%;
