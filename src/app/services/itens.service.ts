@@ -42,7 +42,7 @@ export class ItensService {
         "SKID DE P-2000", "./assets/tanques/Skid2000.jpg", 
         "Instalação composta com 1 Skid de vasos P-2000 com grupo de regulagem",
         "P2000","https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/SkidsP2000_Rev05.glb",
-        "./assets/qrcode/Skid P-2000Pitstop.png", 
+        "./assets/qrcode/KID-DE-P-2000.png", 
         "https://simple-xr-dashboard.s3.sa-east-1.amazonaws.com/models-3d/usdz_skidsp2000_rev05___1638550100974.usdz"
         ),
       
