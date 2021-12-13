@@ -67,7 +67,7 @@
 }
 .itens{
     width: 20%;
-    min-width: 150px;
+    min-width: 155px;
     margin-bottom: 8% ;
     margin-right: 3%;
     height: 20%;
@@ -91,12 +91,12 @@
     min-height: 100px;
 }
 .textoInfo h5{
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 10%;
     
 }
 .textoInfo p{
-    font-size: 12px;
+    font-size: 10px;
     color: rgb(155, 155, 155);
     margin-top: -5%;
 }
