@@ -6,11 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(list: Itens[], searchTerm: string): Itens[] {
+  transform(list: any[], searchTerm: string): any[] {
     if(!list  || !searchTerm){
       return list;
     }
-    return list.filter(lis => lis.Nome.toLowerCase().indexOf(searchTerm.toLowerCase()) !==-1);
+    return list.filter(lis => lis.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !==-1);
   }
 
 }

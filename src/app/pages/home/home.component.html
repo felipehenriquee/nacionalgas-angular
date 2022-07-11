@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="cabecalho centralizado">
-        <img src="./assets/logo.png" alt="" class="logoCabecalho">
+    <div class="cabecalho centralizado" *ngIf="companhia" >
+        <img [src]="companhia.company.logoImageUrl" alt="" class="logoCabecalho">
         <div class="cabecalho2 centralizado">
             <h3>Bem vindo(a) ao nosso catálogo digital</h3>
             <div class="barraPesquisa centralizado">
@@ -16,21 +16,19 @@
             <div class="centralizado" style="margin-left: 0%;" (click)="tipo='Todos'" [ngClass]="{'filtroAtivo': tipo=='Todos'}" >Todos 
                 <div *ngIf="tipo=='Todos'" ></div>
             </div>
-            <div class="centralizado" (click)="tipo='P2000'" [ngClass]="{'filtroAtivo': tipo=='P2000'}" > P-2000
-                <div *ngIf="tipo=='P2000'" ></div>
-            </div>
-            <div class="centralizado" (click)="tipo='P4000'" [ngClass]="{'filtroAtivo': tipo=='P4000'}" >P-4000
-                <div *ngIf="tipo=='P4000'" ></div>
+
+            <div class="centralizado" (click)="tipo=collectioname" [ngClass]="{'filtroAtivo': tipo==collectioname}" >{{collectioname}}
+                <div *ngIf="tipo==collectioname" ></div>
             </div>
         </div>
 
         <div class="conteudo centralizado">
             
-            <div class="itens" *ngFor="let item of listaObjetos | filter: tipo | search: pesquisa"  >
-                <img [src]="item.Imagem" alt="" routerLink="/catalogo/{{item.Id}}/{{tiraEspaco(item.Nome)}}">
-                <div class="textoInfo" routerLink="/catalogo/{{item.Id}}/{{item.Nome}}">
-                    <h5>{{item.Nome}}</h5>
-                    <p>{{item.Tipo}}</p>
+            <div class="itens" *ngFor="let item of listaObjetos | search: pesquisa"  >
+                <img [src]="item.previewImageUrl" alt="" routerLink="/catalogo/{{item.directCode}}">
+                <div class="textoInfo" routerLink="/catalogo/{{item.directCode}}">
+                    <h5>{{item.name}}</h5>
+                    <p>{{collectioname}}</p>
                 </div>
                 
 

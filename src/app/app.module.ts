@@ -9,6 +9,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './pipe/filter.pipe';
 import { SearchPipe } from './pipe/search.pipe';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { httpInterceptorProviders } from './services/http-interceptors';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { TutorialComponent } from './pages/tutorial/tutorial.component';
+import { ButtonRaComponent } from './shared/button-ra/button-ra.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +21,19 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HomeComponent,
     IndividualComponent,
     FilterPipe,
-    SearchPipe
+    SearchPipe,
+    TutorialComponent,
+    ButtonRaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    NgxQRCodeModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

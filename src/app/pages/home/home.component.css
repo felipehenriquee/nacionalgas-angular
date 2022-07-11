@@ -32,6 +32,8 @@
 /* corpo */
 .corpo{
     margin-top: 5%;
+  
+
 }
 .filtros{
     width: 100%;
@@ -66,7 +68,7 @@
     flex-wrap: wrap;
 }
 .itens{
-    width: 20%;
+    width: 22%;
     min-width: 155px;
     margin-bottom: 8% ;
     margin-right: 3%;
