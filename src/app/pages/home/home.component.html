@@ -17,18 +17,21 @@
                 <div *ngIf="tipo=='Todos'" ></div>
             </div>
 
-            <div class="centralizado" (click)="tipo=collectioname" [ngClass]="{'filtroAtivo': tipo==collectioname}" >{{collectioname}}
-                <div *ngIf="tipo==collectioname" ></div>
+            <div class="centralizado" *ngFor="let item of collections"  (click)="tipo=item.collectionName" [ngClass]="{'filtroAtivo': tipo==item.collectionName}" >{{item.collectionName}}
+                <div *ngIf="tipo==item.collectionName" ></div>
             </div>
         </div>
 
-        <div class="conteudo centralizado">
+        <div class="conteudo centralizado container">
             
-            <div class="itens" *ngFor="let item of listaObjetos | search: pesquisa"  >
-                <img [src]="item.previewImageUrl" alt="" routerLink="/catalogo/{{item.directCode}}">
+            <div class="itens" *ngFor="let item of items | filter: tipo | search: pesquisa"  >
+                <div class="img centralizado backgroundImage" >
+                    <img [src]="item.previewImageUrl" alt="" routerLink="/catalogo/{{item.directCode}}">
+                </div>
+
                 <div class="textoInfo" routerLink="/catalogo/{{item.directCode}}">
                     <h5>{{item.name}}</h5>
-                    <p>{{collectioname}}</p>
+                    <p>{{item.tipo}}</p>
                 </div>
                 
 

@@ -1,22 +1,76 @@
 <div class="back centralizado">
-    
+
     <div class="background centralizado"  >
+
         <div class="titulo centralizado">
             
-            <h5>
-            Veja e mova o produto pela sua casa (AR)
+            <h5 *ngIf="pagina==0" >
+            Veja o objeto dentro da sua própria casa!
 
             </h5>
 
 
-            <img src="./assets/novo/cadeira.png" alt="">
-            <img src="./assets/novo/tutorial.svg" alt="" style="margin-bottom: 5%">
-            <div style="width: 100%">
+
+  
+            <img src="./assets/tutorial/imgTutorial.svg" alt="" style="margin-bottom: 5%" *ngIf="pagina==0" >
+            <div style="width: 100%" *ngIf="pagina==0" >
                 <app-button-ra [(code)]="code"></app-button-ra>
+                <!-- <button class="btnIniciar">Iniciar a experiência</button> -->
+            </div>
+            <div class="tutorial centralizado" *ngIf="pagina>0" >
+                <button class="btnFechar centralizado" (click)="fechaTutorial()">
+                    <p>X</p>
+                </button>
+                <div class="imgLinha" *ngIf="pagina>0" (click)="passaPagina()">
+                    <img  src="./assets/tutorial/linha.svg" alt="">
+                    <img *ngIf="pagina>1"  class="ok ok1" style="width: 20px ;" src="./assets/tutorial/ok.svg" alt="">
+                    <img class="ok ok2" *ngIf="pagina>2" style="width: 20px ;" src="./assets/tutorial/ok.svg" alt="">
+                    <img class="ok ok3" *ngIf="pagina>3" style="width: 20px ;" src="./assets/tutorial/ok.svg" alt="">
+        
+                </div>
+                <div class="imgInstrucao" *ngIf="pagina==1" (click)="passaPagina()">
+                    <img src="./assets/tutorial/tabua.svg" alt="">
+                </div>
+                <div class="imgInstrucao" *ngIf="pagina==2" (click)="passaPagina()">
+                    <img src="./assets/tutorial/t1.svg" alt="" class="maozinha m1">
+                    <img src="./assets/tutorial/tabua.svg" alt="">
+                </div>
+                <div class="imgInstrucao" *ngIf="pagina==3" (click)="passaPagina()">
+                    <img src="./assets/tutorial/t2-1.svg" alt="" class="maozinha m2">
+                    <img src="./assets/tutorial/t2-2.svg" alt="" class="maozinha m3">
+                    <img src="./assets/tutorial/imgTutorial.svg" alt="">
+                </div>
+                <div class="imgInstrucao" *ngIf="pagina==4">
+                    <img src="./assets/tutorial/t2-1.svg" alt="" class="maozinha m2 m5">
+                    <img src="./assets/tutorial/t3.svg" alt="" class="maozinha m4">
+                    <img src="./assets/tutorial/imgTutorial.svg" alt="">
+                </div>
+
+                <div class="instrucoes centralizado" (click)="passaPagina()">
+                    <p>{{instrucoes[pagina-1]}}</p>
+                </div>
+                <div style="width: 100%" *ngIf="pagina==4" >
+                    <app-button-ra [(code)]="code"></app-button-ra>
+                    <!-- <button class="btnIniciar">Iniciar a experiência</button> -->
+                </div>
+
+                <div class="rodape centralizado"  style="width:80%; position: absolute; top: 102%;">
+
+                    <button class="btnTutorial"  (click)="fechaTutorial()" >
+                        <img src="./assets/tutorial/back.svg" alt="" style="min-width: 20px !important; width:5%;">
+                        Retornar
+
+                    </button>
+     
+                    <img src="./assets/novo/logoRodapeIphone.png"  alt="" style="width: 30%;" >
+                </div>
             </div>
 
             <div class="rodape centralizado">
-                <img src="./assets/novo/logoRodapeIphone.png" alt="" style="width: 30%;" >
+
+                <button class="btnTutorial"  (click)="pagina=1; iniciarTutorial()" >Como usar?</button>
+ 
+                <img src="./assets/novo/logoRodapeIphone.png"  alt="" style="width: 30%;" >
             </div>
         </div>
     </div>

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   api: "https://simplexr-prod-api.herokuapp.com",
-  api2: "https://simplexr-back.herokuapp.com"
+  api2: "https://simplexr-back.herokuapp.com",
+  siteModelo: "./assets/pages/model.html?glb="
 };
 
 /*

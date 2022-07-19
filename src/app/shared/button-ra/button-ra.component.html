@@ -1,10 +1,11 @@
 <div class="back centralizado">
-    <button class="sxr-qr-code-button centralizado backgroundImage" style='background-image: url("./assets/novo/botao.png");' 
+    <button class="sxr-qr-code-button centralizado backgroundImage" 
     (click)="irPara()"
     
     *ngIf="celular==false" [ngClass]="{'botao-pc': celular==false}"  >
         
-        
+    <img src="./assets/ar-icon.png" alt="" style="margin-right:5% ;">
+    Iniciar a experiência
     </button>
     
     <model-viewer  ar_preferred id="model-viewer" reveal="manual" *ngIf="celular==true" (click)="save()"
@@ -14,8 +15,9 @@
      ar ar-modes="scene-viewer quick-look webxr" camera-controls alt="A 3D model car" 
      [ios-src]="usdz" 
      >
-        <button slot="ar-button" class="sxr-qr-code-button centralizado backgroundImage" style='background-image: url("./assets/novo/botao.png");'>
-            
+        <button slot="ar-button" class="sxr-qr-code-button centralizado backgroundImage">
+            <img src="./assets/ar-icon.png" alt="" style="margin-right:5% ;">
+            Iniciar a experiência
             
         </button>
     </model-viewer >

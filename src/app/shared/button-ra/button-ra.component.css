@@ -2,6 +2,9 @@
 
     width: 100%;
 }
+
+
+
 model-viewer{
     width: 280px;
     min-width: 280px;
@@ -10,6 +13,8 @@ model-viewer{
     border-radius: 303px;
     margin-top: 5%;
     max-width: 360px;
+    box-shadow: 0px 5px 20px rgba(82, 70, 143, 0.33);
+
 }
 .sxr-qr-code-button {
     position: absolute;
@@ -23,11 +28,17 @@ model-viewer{
     cursor: pointer;
     border: 0px;
     flex-direction: row;
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 10;
-   
+
+    /* buttonIdleLight */
+    background: linear-gradient(182.59deg, #F5EFF6 2.16%, #EBE9F6 97.84%);
+    color: #65408C;
+
 }
+
+
 .sxr-ar-icon {
     margin-left: 18px;
     margin-top: auto;
@@ -46,7 +57,9 @@ model-viewer{
     font-size: 20px;
     line-height: 20px;
     /* identical to box height */
-    color: white
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
 }
 .botao-pc {
     position: relative;

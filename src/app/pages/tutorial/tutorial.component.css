@@ -1,6 +1,6 @@
 
 .back{
-    background-color: #c4c4c4;
+    background-color: #F7F4FA;
     
 }
 .background{
@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 500px ;
     min-width: 300px ;
-    background-color: #c4c4c4;
+    background-color: #F7F4FA;
     min-height: 100vh;
     /* background-color: rgb(214, 0, 0); */
 
@@ -25,23 +25,199 @@
     width: 80%;
 }
 .titulo h5{
-    font-size: calc(12px + 1.5vw);
+    font-size: calc(20px + 1.5vw);
     text-align: center;
+    font-family: 'Titillium Web', sans-serif;
 }
 .titulo img{
     margin-top: 10%;
-    width: 80%;
+    width: 100%;
     min-width: 50px;
-    max-width: 350px;
+    max-width: 360px;
 }
 
 .rodape{
-
+    flex-direction: row;
     bottom: 2%;
     height: 10vh;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    min-width: 280px;
     
 }
 .rodape img{
     width: 25%;
+    margin-top: -2%;
+    margin-right: 2%;
+}
+.btnIniciar{
+    
+    /* buttonIdleLight */
+
+    color: #65408C;
+    width: 100%;
+    min-width: 200px;
+    height:47px;
+    max-width: 360px;
+    border: 0;
+    border-radius: 400px;
+    /* buttonIdleLight */
+    background: linear-gradient(182.59deg, #FFFFFF 2.16%, #F4E7F5 97.84%);
+    /* shadowRed */
+    box-shadow: 0px 8px 20px rgba(82, 70, 143, 0.25);
+}
+.imgLinha{
+    position: absolute;
+    top: 1%;
+    z-index: 10;
+
+}
+
+.btnTutorial{
+     height: 50px;
+     border: 0px;
+     border-radius: 50px;
+    width: 150px;
+    /* buttonIdleDark */
+    background: linear-gradient(182.59deg, #F7ECF8 2.16%, #CCC7E2 97.84%);
+    /* shadowRed */
+    box-shadow: 0px 8px 20px rgba(82, 70, 143, 0.25);
+
+    color: #52468F;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+}
+.tutorial{
+    position: absolute;
+    width: 90vw;
+    max-width: 400px;
+    height: 450px;
+    min-height: 400px;
+    background-color: white;
+    border-radius: 40px;
+    margin-bottom: 2%;
+    margin-top: -5%;
+}
+.btnFechar{
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    top:-8%;
+    right: 0%;
+    background-color: white;
+    border-radius: 50px 50px 0 0;
+    border: 0px;
+    justify-content: flex-start;
+    padding-top: 3%;
+    
+}
+.btnFechar p{
+    color: #65408C;
+}
+.btntutorial2{
+    /* buttonIdleLight */
+    background: linear-gradient(182.59deg, #FFFFFF 2.16%, #F4E7F5 97.84%);
+    /* shadowRed */
+    box-shadow: 0px 8px 20px rgba(82, 70, 143, 0.25);
+}
+.instrucoes {
+    width: 80%;
+    position: relative;
+    max-width: 400px;
+}
+.instrucoes p{
+
+    text-align: center;
+    font-size: 20px;
+    color: #52468F;
+}
+
+.maozinha{
+    position: absolute;
+    width:70px !important;
+    left: 60%;
+    top: 37%;
+
+}
+.m1{
+    animation: plados 3s linear infinite;
+    animation-direction: alternate;
+}
+.m2{
+    width: 50px !important;
+    top: 40%;
+}
+.m3{
+    width: 50px !important;
+    top: 50%;
+    left: 60%;
+    animation: plados2 2s linear infinite;
+}
+.m4{
+    width: 25px !important;
+    top: 34%;
+    left: 64%;
+    animation: rodar 2s linear infinite;
+}
+.m5{
+    width: 30px !important;
+    top: 32%;
+
+}
+@keyframes plados {
+    0% {
+        left:60%
+    }
+    50% {
+        left:40%
+    }
+    100% {
+        left: 60%
+    }
+  }
+  @keyframes plados2 {
+    0% {
+        left:64%
+    }
+    50% {
+        left:56%
+    }
+    100% {
+        left: 64%
+    }
+  }
+  @keyframes rodar {
+    0% {
+        transform: rotate(-30deg);
+    }
+    50% {
+        transform: rotate(70deg);
+    }
+    100% {
+        transform: rotate(-30deg);
+    }
+  }
+.ok{
+    position: absolute;
+    min-width: 5px !important;
+    background-color: #F7F4FA;
+
+    border-radius: 100%;
+}
+.ok1{
+    top: -5px;
+    left: 0;
+}
+.ok2{
+    top: -5px;
+    left:90px;
+}
+.ok3{
+    top: -5px;
+    left:180px;
+}
+.btnBack{
+    min-width: 20px !important;
+    width: 10px !important;
 }

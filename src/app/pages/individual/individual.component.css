@@ -1,18 +1,41 @@
 .corpo{
     overflow: hidden;
     height: 100vh;
-    
+    font-family: 'Titillium Web', sans-serif;
     justify-content: flex-end;
+}
+.btnExpandir{
+    display: none;
 }
 
 .botoesTop{
-    
-    margin-top:5%;
+    position: absolute;
+
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
-    z-index: 100;
+    width: 0% !important;
+
+    z-index: 10;
+
+    left: 20px;
+    top: 0px;
 }
+.bshadow img{
+    width: 20% !important;
+}
+
+.botoesTop button{
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+
+}
+.botoesTop button img{
+    min-width: 30px;
+
+}
+
+
 .doisBotoes{
     width: 30%;
     flex-direction: row;
@@ -28,8 +51,9 @@
 .imagem{
     width: 100%;
     min-height: 300px;
-    height: 80%;
-    
+
+    position: relative;
+
 }
 .imagem img{
     width: 100%;
@@ -42,7 +66,7 @@
     height: 40px;
 }
 .informacao{
-    margin-top: 5%;
+
     background-color: white;
     height: 40%;
     width: 100%;
@@ -57,7 +81,8 @@
     overflow: auto;
     transition: 0.5s;
     padding: 1%;
-
+    width: 100%;
+    min-height: 100px;
 }
 .informacoesPc{
     padding-right: 5%;
@@ -67,18 +92,23 @@
     margin-top: 5%;
 }
 .informacoesPc p{
+
     text-align: justify;
 }
 .fechar{
-    background-color: rgb(114, 114, 114);
-    width: 30px;
-    height: 5px;
-    border-radius: 15px;
+    position: absolute;
+    margin-top: -10%;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
     border: 0px;
+    box-shadow: 1px 1px 10px rgba(34, 37, 45, 0.2);
 }
 .informacaoFechada{
     animation: diminuir 0.5s linear forwards;
 }
+
 .sxr-qr-code-button {
     position: absolute;
     display: flex;
@@ -116,25 +146,39 @@
     /* identical to box height */
     color: #0F1215;
 }
+.botoes{
+    width: 33%;
+
+    flex-direction: row;
+    justify-content: space-between;
+}
+.botoes a{
+    color: rgb(39, 140, 255);
+    font-size: 12px;
+    cursor: pointer;
+}
+.ativado{
+    color: rgb(24, 88, 161) !important;
+}
 @keyframes diminuir {
-    from {height: 35%;}
-    to {height: 5%;}
+    from {height: 50%;}
+    to {height: 12%;}
   }
   @keyframes crescer {
-    from {height: 5%;}
-    to {height: 35%;}
+    from {height: 12%;}
+    to {height: 50%;}
   }
 
   @keyframes diminuirPc {
-    from {width: 35%;}
-    to {width: 0%;}
+    from {width: 40%;}
+    to { min-width: 0px; width: 0%;}
   }
   @keyframes crescerPc {
     from {width: 0%;}
-    to {width: 35%;}
+    to {width: 40%;  min-width: 400px;}
   }
   @keyframes sumirPc {
-    from {width: 35%;}
+    from {width: 40%;}
     to {width: 0%;}
   }
   @keyframes aparecerPc {
@@ -166,7 +210,89 @@
     display: none;
 
 }
-  @media screen and (min-width: 768px) {
+.tecnico{
+    background-color: #F6F6F9;
+    width: 95%;
+    margin-top: 5%;
+    padding: 2%;
+    height: 25vh;
+    min-height: 80px;
+    max-height: 400px;
+    overflow: auto;
+}
+.tecnico p{
+    font-size: 12px;
+    margin-top: 0%;
+    width: 30%;
+
+}
+.cadaTecnico{
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: -3%;
+}
+.cadaTecnico p{
+    font-size: calc(10px + 0.2vw);
+}
+.imgLogo{
+
+    width: 40%;
+}
+.rodapeCelular{
+    width: 100%;
+    background-color: white;
+    height: 50px;
+    padding: 1%;
+    flex-direction: row;
+}
+.rodapeCelular img{
+    width: 30% !important;
+}
+.rodapeLand{
+    display: none;
+}
+.rodape{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    padding: 5%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 5%;
+    z-index: 100;
+}
+.divRodape{
+    width: 50%; flex-direction: row; justify-content: space-between
+}
+.divRodape img{
+    width: 40%;
+}
+  @media screen and (min-width: 900px) {
+
+    .rodape{
+        width: 100%;
+
+        padding: 0;
+        bottom: 1%;
+    }
+    .divRodape{
+        width: 100%;
+        justify-content: center;
+
+        flex-direction: row;
+    }
+    .divRodape img{
+        width: 10%;
+        min-width: 100px !important;
+        max-width: 100px;
+        margin-right: 5%;
+        margin-top: 0
+    }
+    .btnExpandir{
+        display: block;
+    }
     .btnZoom{
         position: absolute;
         top: 40%;
@@ -177,9 +303,9 @@
         background-repeat: no-repeat;
         background-size: contain;
         border: 0px;
-        z-index: 100;
+        z-index: 10000;
         background-color: white;
-        box-shadow: 5px 5px 5px rgba(34, 37, 45, 0.2);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
         border-radius: 100%;
     }
 
@@ -195,18 +321,28 @@
     .informacaoPc{
         position: relative;
         display: flex;
-        min-width: 0%;
-        width: 35%;
+        min-width: 400px;
+        width: 40%;
         height: 100vh;
         background-color: white;
         padding: 2%;
+
         
     }
-    .informacoesPc{
-        height: 400px;
-        margin-top: 10%;
-        overflow: auto;
+    .infos{
+        height: 100vh;
+
+        width: 100%;
     }
+    .informacoesPc{
+        min-height: 200px;
+        margin-top: 5%;
+        overflow: auto;
+        width: 95%;
+  
+    }
+
+
     .informacoesPc::-webkit-scrollbar-track {
         background-color: #F4F4F4;
     }
@@ -225,6 +361,7 @@
         position: relative;
         width: 100%;
         height: 100vh;
+
     }
     .imagem img{
         width: 50%;
@@ -232,41 +369,104 @@
         
     }
     .qrCode{
-        margin-top:20%;
-        width: 100%;
+        margin-top:5%;
+        width: 50%;
+        background-color: white;
+        box-shadow: 1px 1px 8px rgba(0,0,0,0.2),
+        inset 1px 1px 2px #fff;
+        padding: 2%;
+        border-radius: 30px;
+        color: #52468F;
+
     }
     .qrCode img{
         width: 50%;
+    }
+    .qrCode h5{
+        margin-top: 5%;
+        margin-bottom: -1%;
+        width: 60%;
+        text-align: center;
+        font-size: calc(12px + 0.2vh);
     }
     .qrCode p{
         text-align: center;
         font-size: 12px;
         font-weight: bold;
-    }
-    .botoesTop{
-        position: absolute;
-        top:80%;
-        left:420px;
+
         width: 50%;
     }
-    .botaoVoltar{
-        display: none;
-    }
+
+
     .doisBotoes{
-        width: 100px;
+        width: 120px;
     }
     .espacamento{
         width: 0%;
     }
-    .rodape {
-        width: 100px;
-        height: 50px;
 
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+
+    .imgLogo{
+        width: 30%;
+        margin-top: 5%;
     }
 
+  }
 
+  @media only screen and (orientation: landscape) {
+    .corpo{
+        flex-direction: row;
+    }
+    .espacamento{
+        display: none;
+    }
+    .imagem{
+        width: 60%;
+    }
+    .informacao{
+        width: 40%;
+        height: 100vh !important;
+        margin-top: 0%;
+        border-radius: 0;
+        padding: 1%;
+    }
+    .fechar{
+        display: none;
+    }
+    .informacoes{
+
+        min-height: 150px;
+    }
+    .tecnico{
+        
+        min-height: 120px;
+    }
+    .rodapeCelular{
+        display: none;
+    }
+    .rodape{
+        bottom: 2%;
+        width: 60%;
+    }
+    object{
+        height: 100vh !important;
+    }
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  

@@ -62,7 +62,7 @@ export class ButtonRaComponent implements OnInit {
    }
    async irPara(){
 
-    // window.location.href = `https://simplexr.bugaboostudio.com.br/model?id=${this.obj}`;
+    window.location.href = `https://teste.simplexr.com.br/#/catalogo/${this.code}`;
     // window.location.href = `#/erro`;
    }
 

@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+    #controls {
+      position: absolute;
+      top: 0x;
+      right: 0px;
+      max-width: unset;
+      transform: unset;
+      
+    }
+    #controls button{
+      cursor: pointer;
+    }
+  
+    .dot{
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(180deg, #B64C70 0%, #5B0DAF 100%);
+      --min-hotspot-opacity: 0;
+      border: 0px;
+    }
+  
+    .dim{
+
+      border-radius: 4px;
+
+      color: #52468F;
+      display: block;
+      font-family: Futura, Helvetica Neue, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      max-width: 128px;
+      overflow-wrap: break-word;
+      padding: 0.2em;
+      position: absolute;
+      width: max-content;
+      height: max-content;
+      transform: translate3d(-50%, -50%, 0);
+      --min-hotspot-opacity: 0;
+      border: 1px solid;
+      border-image: linear-gradient(to right, darkblue, darkorchid) 1
+    }
+  
+    .show{
+      --min-hotspot-opacity: 1;
+    }
+
+    .btnRedimensionar{
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border: 0px;
+    }
+    .btnRedimensionar img{
+      width: 100%;
+    }
+    .posicao{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      background-color: white;
+      top: 50px;
+      width: 50px;
+      height: 180px;
+      z-index: 100;
+      right: 0;
+      border-radius: 7px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+    .posicao button{
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+
+    .naoMostra{
+      display: none;
+    }
+      
+
+    body{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .arButton{
+      position: absolute;
+      bottom: 2%;
+      right: 5%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: white;
+      border: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+    .aviso{
+      position: absolute;
+  /* position the div in center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+      background: linear-gradient(182.59deg, #FFFFFF 2.16%, #F4E7F5 97.84%);
+      box-shadow: 0px 8px 20px rgba(82, 70, 143, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 40px;
+
+
+      text-align: center;
+      border-radius: 15px;
+      font-size: 18px;
+      font-family: 'Titillium Web', sans-serif;
+      color: #52468F;
+      /* animation: aparecer 0.2s linear forwards; */
+      z-index: 100;
+    }
+    .some{
+      animation: sumir 2s linear forwards;
+      animation-delay: 1s;
+    }
+  @keyframes aparecer {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+
+
+  }
+  @keyframes sumir {
+    0% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+
+    }
+
+
+  }
+
+
+  .hide{
+      display: none;
+    }
+    /* This keeps child nodes hidden while the element loads */
+    :not(:defined) > * {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+    <model-viewer 
+    enable-pan image="neutral"
+    style="width: 100%; height: 98vh" loading="eager" 
+    id="dimension-demo" ar ar-modes="webxr quick-look scene-viewer" xr-environment 
+    ar-scale="auto" camera-orbit="-30deg auto auto" 
+    max-camera-orbit="auto 100deg auto" shadow-intensity="1" camera-controls 
+    src="https://simplexr-vritems.s3.sa-east-1.amazonaws.com/nesher/cozinhas-nesher/80V5V5/COZINHA BURGUESA_39_v03.glb" 
+    >
+    <button slot="hotspot-dot+X-Y+Z" class="dot hide" data-position="1 -1 1" data-normal="1 0 0"></button>
+    <button slot="hotspot-dim+X-Y" class="dim hide" data-position="1 -1 0" data-normal="1 0 0"></button>
+    <button slot="hotspot-dot+X-Y-Z" class="dot hide" data-position="1 -1 -1" data-normal="1 0 0"></button>
+    <button slot="hotspot-dim+X-Z" class="dim hide" data-position="1 0 -1" data-normal="1 0 0"></button>
+    <button slot="hotspot-dot+X+Y-Z" class="dot show hide" data-position="1 1 -1" data-normal="0 1 0"></button>
+    <button slot="hotspot-dim+Y-Z" class="dim show hide" data-position="0 -1 -1" data-normal="0 1 0"></button>
+    <button slot="hotspot-dot-X+Y-Z" class="dot show hide" data-position="-1 1 -1" data-normal="0 1 0"></button>
+    <button slot="hotspot-dim-X-Z" class="dim hide" data-position="-1 0 -1" data-normal="-1 0 0"></button>
+    <button slot="hotspot-dot-X-Y-Z" class="dot hide" data-position="-1 -1 -1" data-normal="-1 0 0"></button>
+    <button slot="hotspot-dim-X-Y" class="dim hide" data-position="-1 -1 0" data-normal="-1 0 0"></button>
+    <button slot="hotspot-dot-X-Y+Z" class="dot hide" data-position="-1 -1 1" data-normal="-1 0 0"></button>
+
+    <p class="aviso hide some" id="aviso">Link copiado!</p>
+
+    <button class="arButton" slot="ar-button" id="ar-button"
+    style="background-image: url('https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Fsimplexr.svg?alt=media&token=bbbb886b-322b-49b4-aa72-29b9da349924');"
+    >
+
+    </button>
+
+    <div id="controls" class="">
+      <button class="btnRedimensionar" id="shared">
+        <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Fshare.svg?alt=media&token=c3063d74-49de-48b7-8579-d41563374bd5" alt="">
+      </button>
+
+      <button class="btnRedimensionar" id="redimensionar">
+        <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Fdimensao.svg?alt=media&token=afc6cb10-7b80-45bc-9a97-d1cb9372b72a" alt="">
+      </button>
+      <button class="btnRedimensionar" id="posicao" >
+        <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Ftextura.svg?alt=media&token=dc5e598d-df5f-4f3a-bf1b-e061cd7554da" alt="">
+      </button>
+      <div class="posicao hide" id="divPosicao">
+        <!-- frente -->
+        <button class="btnRedimensionar" id="posicao1" >
+          <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Ftextura.svg?alt=media&token=dc5e598d-df5f-4f3a-bf1b-e061cd7554da" alt="">
+        </button>
+        <button class="btnRedimensionar" id="posicao2" >
+          <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Ftextura.svg?alt=media&token=dc5e598d-df5f-4f3a-bf1b-e061cd7554da" alt="">
+        </button>
+        <button class="btnRedimensionar" id="posicao3" >
+          <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Ftextura.svg?alt=media&token=dc5e598d-df5f-4f3a-bf1b-e061cd7554da" alt="">
+        </button>
+        <button class="btnRedimensionar" id="posicao4" >
+          <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Ftextura.svg?alt=media&token=dc5e598d-df5f-4f3a-bf1b-e061cd7554da" alt="">
+        </button>
+        <button class="btnRedimensionar" id="posicao5" >
+          <img src="https://firebasestorage.googleapis.com/v0/b/bird-9fcef.appspot.com/o/simplexr%2Ftextura.svg?alt=media&token=dc5e598d-df5f-4f3a-bf1b-e061cd7554da" alt="">
+        </button>
+      </div>
+    </div>
+      </model-viewer>
+      
+      <script type="module">
+
+        var exposure = 0;
+        var showDimension = false;
+        var showPosicao = false;
+        
+        const modelViewer = document.querySelector('#dimension-demo');
+        var glb = location.href.split('?')[1].split('&')[0].split('=');
+        var usdz = location.href.split('?')[1].split('&')[1].split('=');
+        var code = location.href.split('?')[1].split('&')[2].split('=');
+
+
+        console.log(window.location.href)
+        modelViewer.src = glb[1];
+        modelViewer.iosSrc = usdz[1];
+        code = code[1];
+      
+        const btnRedimensionar = modelViewer.querySelector('#redimensionar');
+        const btnShared = modelViewer.querySelector('#shared');
+        const btnPosicao = modelViewer.querySelector('#posicao');
+        const btnAr = modelViewer.querySelector('#ar-button')
+        const divPosicao = modelViewer.querySelector('#divPosicao');
+        const divAviso = modelViewer.querySelector('#aviso');
+        
+        const btnPosicao1 = modelViewer.querySelector('#posicao1');
+        const btnPosicao2 = modelViewer.querySelector('#posicao2');
+        const btnPosicao3 = modelViewer.querySelector('#posicao3');
+        const btnPosicao4 = modelViewer.querySelector('#posicao4');
+        const btnPosicao5 = modelViewer.querySelector('#posicao5');
+
+
+
+        btnRedimensionar.addEventListener('click', () => {
+          showDimension = !showDimension;
+          modelViewer.querySelectorAll('button').forEach((hotspot) => {
+            if (showDimension) {
+              hotspot.classList.remove('hide');
+            } else {
+              hotspot.classList.add('hide');
+              btnRedimensionar.classList.remove('hide');
+              btnShared.classList.remove('hide');
+              btnPosicao.classList.remove('hide');
+              btnPosicao1.classList.remove('hide');
+              btnPosicao2.classList.remove('hide');
+              btnPosicao3.classList.remove('hide');
+              btnPosicao4.classList.remove('hide');
+              btnPosicao5.classList.remove('hide');
+              btnAr.classList.remove('hide');
+            }
+          });
+        });
+        btnShared.addEventListener('click', () => {
+          divAviso.classList.add('hide');
+          var inputc = document.body.appendChild(document.createElement("input"));
+          inputc.value = `https://teste.simplexr.com.br/#/catalogo/${code}`;
+          inputc.focus();
+          inputc.select();
+          document.execCommand('copy');
+          inputc.parentNode.removeChild(inputc);
+          divAviso.classList.remove('hide');
+        });
+        btnPosicao.addEventListener('click', () => {
+          showPosicao = !showPosicao;
+          if (showPosicao) {
+            divPosicao.classList.remove('hide');
+          } else {
+            divPosicao.classList.add('hide');
+
+          }
+
+        });
+        // frente
+        btnPosicao1.addEventListener('click', () => {
+          const orbitCycle = [
+            '0deg 55deg',
+            '-60deg 180deg',
+            modelViewer.cameraOrbit
+          ];
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit = "0deg 90deg 10m"
+
+
+        });
+        // costas
+        btnPosicao2.addEventListener('click', () => {
+          const orbitCycle = [
+            '0deg 100deg',
+            '-80deg 180deg',
+            modelViewer.cameraOrbit
+          ];
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit = "180deg 90deg 10m"
+
+        });
+        // cima
+        btnPosicao3.addEventListener('click', () => {
+          const orbitCycle = [
+            '0deg 100deg',
+            '-80deg 180deg',
+            modelViewer.cameraOrbit
+          ];
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit = "0deg 0deg 10m"
+
+        });
+        // direita
+        btnPosicao4.addEventListener('click', () => {
+          const orbitCycle = [
+            '0deg 100deg',
+            '-80deg 180deg',
+            modelViewer.cameraOrbit
+          ];
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit = "90deg 90deg 10m"
+
+        });
+        // direita
+        btnPosicao5.addEventListener('click', () => {
+          const orbitCycle = [
+            '0deg 100deg',
+            '-80deg 180deg',
+            modelViewer.cameraOrbit
+          ];
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit = "-90deg 90deg 10m"
+
+        });
+
+
+        modelViewer.addEventListener('load', () => {
+
+          const center = modelViewer.getCameraTarget();
+          const size = modelViewer.getDimensions();
+          const x2 = size.x / 2;
+          const y2 = size.y / 2;
+          const z2 = size.z / 2;
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dot+X-Y+Z',
+            position: `${center.x + x2} ${center.y - y2} ${center.z + z2}`
+          });
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dim+X-Y',
+            position: `${center.x + x2} ${center.y - y2} ${center.z}`
+          });
+          modelViewer.querySelector('button[slot="hotspot-dim+X-Y"]').textContent =
+              `${(size.z * 100).toFixed(0)} cm`;
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dot+X-Y-Z',
+            position: `${center.x + x2} ${center.y - y2} ${center.z - z2}`
+          });
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dim+X-Z',
+            position: `${center.x + x2} ${center.y} ${center.z - z2}`
+          });
+          modelViewer.querySelector('button[slot="hotspot-dim+X-Z"]').textContent =
+              `${(size.y * 100).toFixed(0)} cm`;
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dot+X+Y-Z',
+            position: `${center.x + x2} ${center.y + y2} ${center.z - z2}`
+          });
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dim+Y-Z',
+            position: `${center.x} ${center.y + y2} ${center.z - z2}`
+          });
+          modelViewer.querySelector('button[slot="hotspot-dim+Y-Z"]').textContent =
+              `${(size.x * 100).toFixed(0)} cm`;
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dot-X+Y-Z',
+            position: `${center.x - x2} ${center.y + y2} ${center.z - z2}`
+          });
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dim-X-Z',
+            position: `${center.x - x2} ${center.y} ${center.z - z2}`
+          });
+          modelViewer.querySelector('button[slot="hotspot-dim-X-Z"]').textContent =
+              `${(size.y * 100).toFixed(0)} cm`;
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dot-X-Y-Z',
+            position: `${center.x - x2} ${center.y - y2} ${center.z - z2}`
+          });
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dim-X-Y',
+            position: `${center.x - x2} ${center.y - y2} ${center.z}`
+          });
+          modelViewer.querySelector('button[slot="hotspot-dim-X-Y"]').textContent =
+              `${(size.z * 100).toFixed(0)} cm`;
+      
+          modelViewer.updateHotspot({
+            name: 'hotspot-dot-X-Y+Z',
+            position: `${center.x - x2} ${center.y - y2} ${center.z + z2}`
+          });
+
+        });
+
+        
+      </script>
+</body>
+</html>

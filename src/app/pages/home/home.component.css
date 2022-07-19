@@ -39,7 +39,19 @@
     width: 100%;
     justify-content: flex-start;
     flex-direction: row;
+    overflow: auto;
 }
+.filtros::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+.filtros::-webkit-scrollbar {
+    height: 5px;
+    width: 2px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+} 
 .filtros div{
     margin-left: 5%;
     font-weight: bold;
@@ -62,14 +74,13 @@
 .conteudo{
     margin-top:5%;
     width: 100%;
-    justify-content: flex-start;
-    
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .itens{
     width: 22%;
-    min-width: 155px;
+    min-width: 200px;
     margin-bottom: 8% ;
     margin-right: 3%;
     height: 20%;
@@ -82,9 +93,17 @@
 .itens:hover{
     box-shadow: 0px 0px 10px  0px rgb(156, 156, 156);
 }
-.itens img{
+.itens .img{
     width: 100%;
     border-radius: 7px 7px 0px 0px;
+    height: 200px;
+    background-color: #f0f0f0;
+    background-size:100%;
+
+}
+.img img{
+    max-width: 100%;
+    max-height: 100%;
 }
 .textoInfo{
     margin-top: 5%;

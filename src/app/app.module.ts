@@ -26,14 +26,14 @@ import { ButtonRaComponent } from './shared/button-ra/button-ra.component';
     ButtonRaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     NgxQRCodeModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, httpInterceptorProviders],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
